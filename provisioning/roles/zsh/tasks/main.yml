@@ -6,4 +6,7 @@
   command: chsh -s '/bin/zsh' vagrant
 
 - name: copy .zshrc file to vagrant home
-  copy: src=../.zshrc dest=~vagrant/.zshrc owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
+  #ホストOSの.zshrcをゲストOSにコピー
+  copy: src=~/.zshrc dest=~vagrant/.zshrc owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
+  #provisioning/roles/zsh/.zshrcをゲストOSにコピー
+  #copy: src=../.zshrc dest=~vagrant/.zshrc owner=vagrant group=vagrant mode="u=rw,g=    r,o=r"
