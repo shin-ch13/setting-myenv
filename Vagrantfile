@@ -9,8 +9,13 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "test" do |test|
+    #ホスト名の設定
     test.vm.hostname = "test"
-    #ホストOSと通信するIPアドレスの設定
+    
+	#メモリの設定
+	# test.customize ["modifyvm", :id, "--memory", "1024"]
+    
+	#ホストOSと通信するIPアドレスの設定
     test.vm.network "private_network", ip: "192.168.33.12"
   end
 
