@@ -1,8 +1,0 @@
-# main.yml
- 
-- hosts: all
-  user: vagrant
-  sudo: yes
-  roles:
-    - vim
-    - zsh
