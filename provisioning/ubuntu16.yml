@@ -1,0 +1,10 @@
+#ubuntu16 group master playbook
+---
+
+- hosts: ubnutu16
+  user: vagrant
+  sudo: yes
+  roles:
+	  - vim_ubuntu
+	  - zsh_ubuntu
+

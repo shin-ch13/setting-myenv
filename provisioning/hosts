@@ -1,2 +1,18 @@
-[test]
+[hostname]
 192.168.33.12
+
+# centos6 only group
+[centos6:children]
+hostname
+
+#centos7 only group
+[centos7:children]
+hostname
+
+#ubuntu16 only group
+[ubuntu16:children]
+hostname
+
+#all group
+[all:children]
+hostname

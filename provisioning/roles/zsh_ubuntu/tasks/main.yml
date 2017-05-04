@@ -1,0 +1,9 @@
+---
+- name: install zsh by apt
+  apt: name=zsh state=present
+
+- name: set zsh as default shell for root
+  command: chsh -s '/bin/zsh' root
+
+- name: copy .zshrc file to dest home
+  copy: src=".zshrc" dest="~/.zshrc" owner=root group=root mode="u=rw,g=r,o=r"
