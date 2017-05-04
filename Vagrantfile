@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
   #ansibleの設定
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/main.yml"
+    ansible.playbook = "provisioning/site.yml"
     ansible.inventory_path = "provisioning/hosts"
     ansible.limit = 'all'
   end
