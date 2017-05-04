@@ -1,0 +1,8 @@
+---
+#sshdを再起動するハンドラ
+- name: restart sshd
+  service: name=sshd state=restarted
+
+#iptablesを再起動するハンドラ
+- name: restart iptables
+  service: name=iptables state=restarted
