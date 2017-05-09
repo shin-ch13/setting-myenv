@@ -6,4 +6,4 @@
   command: chsh -s '/bin/zsh' vagrant
 
 - name: copy .zshrc file to dest home
-  copy: src=".zshrc" dest="~/.zshrc" owner=root group=root mode="u=rw,g=r,o=r"
+  copy: src=".zshrc" dest="~vagrant/.zshrc" owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

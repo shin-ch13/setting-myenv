@@ -19,4 +19,4 @@
   yum: name=vim state=present
 
 - name: copy .vimrc file to dest home
-  copy: src=".vimrc" dest="~/.vimrc" owner=root group=root mode="u=rw,g=r,o=r"
+  copy: src=".vimrc" dest="~vagrant/.vimrc" owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
