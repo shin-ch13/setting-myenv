@@ -1,18 +1,18 @@
 [hostname]
-192.168.33.12
+(ip address)
 
 # centos6 only group
 [centos6:children]
-hostname
+#hostname
 
 #centos7 only group
 [centos7:children]
-hostname
+#hostname
 
 #ubuntu16 only group
 [ubuntu16:children]
-hostname
+#hostname
 
 #all group
 [all:children]
-hostname
+#hostname

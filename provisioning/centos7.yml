@@ -5,8 +5,8 @@
   user: vagrant
   sudo: yes
   roles:
-      #- common
-	  - vim_centos
-	  - zsh_centos
+#   - common
+   - vim_centos
+   - zsh_centos
 
 
