@@ -1,7 +1,7 @@
 #ubuntu16 group master playbook
 ---
 
-- hosts: ubnutu16
+- hosts: ubuntu16
   user: vagrant
   sudo: yes
   roles:
