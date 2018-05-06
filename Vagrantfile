@@ -54,11 +54,11 @@ Vagrant.configure("2") do |config|
   end
 
   #vagrant up時にAnsibleを実行する
-  #config.vm.provision "ansible" do |ansible|
-  #  ansible.playbook = "provisioning/site.yml"
-  #  ansible.inventory_path = "provisioning/hosts"
-  #  ansible.limit = 'all'
-  #end
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/site.yml"
+    ansible.inventory_path = "provisioning/hosts"
+    ansible.limit = 'all'
+  end
 end
 
 $script1 = <<END
