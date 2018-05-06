@@ -2,21 +2,10 @@
 - name: vim requires install by yum
   yum: name={{ item }} state=latest
   with_items:
-    - gcc
     - git
-    - mercurial
-    - ncurses-devel
-    - lua
-    - lua-devel 
-    - perl
-    - perl-devel
-    - perl-ExtUtils-Embed
     - python
     - python-devel
     - libselinux-python
 
 - name: install vim by yum
   yum: name=vim state=present
-
-- name: copy .vimrc file to dest home
-  copy: src=".vimrc" dest="~vagrant/.vimrc" owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

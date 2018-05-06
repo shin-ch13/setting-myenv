@@ -1,11 +1,11 @@
 #ubuntu16 group master playbook
 ---
 
-- hosts: ubuntu16
-  user: vagrant
+- hosts: hostname
+  user: nobu
   sudo: yes
   roles:
-#  - common 
-   - vim_ubuntu
-   - zsh_ubuntu
-
+  - common
+  - vim_ubuntu
+  - zsh_ubuntu
+  - tmux_ubuntu

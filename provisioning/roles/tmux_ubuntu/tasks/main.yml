@@ -1,0 +1,36 @@
+---
+- name: tmux requires install by apt
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - libncurses5-dev
+    - libevent-dev
+    - gcc
+    - make
+
+- name: Create tmp directory
+  file: path=/var/tmp/tmux-2.7 state=directory
+
+- name: Download tmux
+  get_url: >
+    url=https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+    dest=/var/tmp/tmux-2.7.tar.gz
+  environment:
+    LANG: C
+    LC_ALL: C
+    LC_MESSAGES: C
+
+- name: Unarchive tmux
+  unarchive: src=/var/tmp/tmux-2.7.tar.gz dest=/var/tmp/ copy=no
+
+- name: ./configure tmux
+  command: >
+    ./configure
+    --prefix=/usr/local/tmux-2.7
+    chdir=/var/tmp/tmux-2.7/
+
+- name: make tmux
+  command: make chdir=/var/tmp/tmux-2.7
+
+- name: make install tmux
+  command: make install chdir=/var/tmp/tmux-2.7
+

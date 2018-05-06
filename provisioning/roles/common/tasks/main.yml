@@ -1,1 +1,14 @@
 ---
+- name: copy dotfiles to dest home
+  copy: src="../../../../dotfiles" dest="~nobu" owner=nobu group=nobu mode="u=rwx,g=r,o=r"
+
+- name: Create symlinks
+  file:
+    src: ~nobu/dotfiles/{{ item }}
+    dest: ~nobu/{{ item }}
+    state: link
+    force: yes
+  with_items:
+    - .tmux.conf
+    - .zshrc
+    - .vimrc

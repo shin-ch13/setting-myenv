@@ -2,14 +2,8 @@
 - name: vim requires install by apt
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
-    - gcc
     - git
-    - mercurial
-    - perl
     - python
 
 - name: Install vim by apt
   apt: name=vim state=present
-
-- name: copy .vimrc file to dest home
-  copy: src=".vimrc" dest="~vagrant/.vimrc" owner=vagrant group=vagrant mode="u=rw,g=r,o=r"

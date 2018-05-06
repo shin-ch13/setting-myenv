@@ -7,8 +7,8 @@
 export LANG=ja_JP.UTF-8
 
 # User configuration
- 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+
+export PATH="/usr/local/tmux-2.7/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 # 色を使用出来るようにする
@@ -173,10 +173,10 @@ case ${OSTYPE} in
         export CLICOLOR=1
         alias ls='ls -G -F'
         #cdを打ったら自動的にlsを打ってくれる関数
-	function cd(){
-    	builtin cd $@ && ls;
-	}
-	;;
+  function cd(){
+      builtin cd $@ && ls;
+  }
+  ;;
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'

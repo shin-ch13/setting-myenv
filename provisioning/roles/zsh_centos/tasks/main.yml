@@ -2,9 +2,5 @@
 - name: install zsh by yum
   yum: name=zsh state=present
 
-- name: set zsh as default shell for vagrant
-  command: chsh -s '/bin/zsh' vagrant
-
-- name: copy .zshrc file to dest home
-  copy: src=".zshrc" dest="~vagrant/.zshrc" owner=vagrant group=vagrant mode="u=rw,g=r,o=r"
-  
+- name: set zsh as default shell for nobu
+  command: chsh -s '/bin/zsh' nobu

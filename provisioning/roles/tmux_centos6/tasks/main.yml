@@ -1,0 +1,71 @@
+---
+- name: tmux requires install by yum
+  yum: name={{ item }} state=latest
+  with_items:
+    - ncurses-devel
+    - gcc
+
+- name: Create tmp directory
+  file: path=/var/tmp/libevent-2.1.8-stable state=directory
+
+- name: Download libvent
+  get_url: >
+    url=https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+    dest=/var/tmp/libevent-2.1.8-stable.tar.gz
+  environment:
+    LANG: C
+    LC_ALL: C
+    LC_MESSAGES: C
+
+- name: Unarchive libvent
+  unarchive: src=/var/tmp/libevent-2.1.8-stable.tar.gz dest=/var/tmp/ copy=no
+
+- name: ./configure libvent
+  command: >
+    ./configure
+    --prefix=/usr/local/libevent-2.1.8-stable
+    chdir=/var/tmp/libevent-2.1.8-stable/
+
+- name: make libvent
+  command: make chdir=/var/tmp/libevent-2.1.8-stable
+
+- name: make install libvent
+  command: make install chdir=/var/tmp/libevent-2.1.8-stable
+
+- name: create path libvent 
+  lineinfile: >
+    dest=~nobu/dotfiles/.zshrc
+    state=present
+    insertafter='# User configuration'
+    line='export LD_LIBRARY_PATH="/usr/local/libevent-2.1.8-stable/lib:$LD_LIBRARY_PATH"'
+
+- name: Create tmp directory
+  file: path=/var/tmp/tmux-2.7 state=directory
+
+- name: Download tmux
+  get_url: >
+    url=https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+    dest=/var/tmp/tmux-2.7.tar.gz
+  environment:
+    LANG: C
+    LC_ALL: C
+    LC_MESSAGES: C
+
+- name: Unarchive tmux
+  unarchive: src=/var/tmp/tmux-2.7.tar.gz dest=/var/tmp/ copy=no
+
+- name: ./configure tmux
+  command: >
+    ./configure
+    CPPFLAGS="-I/usr/local/libevent-2.1.8-stable/include"
+    LDFLAGS="-L/usr/local/libevent-2.1.8-stable/lib"
+    --prefix=/usr/local/tmux-2.7
+    chdir=/var/tmp/tmux-2.7/
+
+- name: make tmux
+  command: make chdir=/var/tmp/tmux-2.7
+
+- name: make install tmux
+  command: make install chdir=/var/tmp/tmux-2.7
+
+

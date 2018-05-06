@@ -1,11 +1,13 @@
 "編集中のファイル名を表示
-set title 
+set title
 "括弧入力時の対応する括弧を表示
-set showmatch 
+set showmatch
 "コードの色分け
-syntax on 
+syntax on
 "クリップボードの使用
 set clipboard=unnamed,autoselect
+"バックスペースの有効化
+set backspace=indent,eol,start
 
 "tab幅の設定
 set tabstop=2

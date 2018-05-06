@@ -1,12 +1,11 @@
 #centos7 group master playbook
 ---
 
-- hosts: centos7
-  user: vagrant
+- hosts: hostname
+  user: nobu
   sudo: yes
   roles:
-#   - common
+   - common
    - vim_centos
    - zsh_centos
-
-
+   - tmux_centos7
