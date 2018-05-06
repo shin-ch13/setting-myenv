@@ -4,6 +4,8 @@
 2. ansibleによるリモートマシンの設定
 3. vagrant+ansibleによるMyテスト環境のデプロイ
 
+※CentOS6,CentOS7,Ubuntu16.04で動作確認済み　　
+
 ## 設定方法
 
 ## 共通
@@ -16,8 +18,7 @@ cd setting-myenv
 ## 1. dotfilesによるローカルマシンの設定
 
 .vimrc , .zshrc , .tmux.conf のシンボリックリンク設定  
-※対象パッケージはインストールされているものとする　　  
-※CentOS6,CentOS7,Ubuntu16.04で動作確認済み　　 
+※対象パッケージはインストールされているものとする　　   
 
 ```
 cd dotfiles
