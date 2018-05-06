@@ -18,7 +18,7 @@ cd setting-myenv
 ## 1. dotfilesによるローカルマシンの設定
 
 .vimrc , .zshrc , .tmux.conf のシンボリックリンク設定  
-※対象パッケージはインストールされているものとする　　   
+※対象パッケージはインストールされていること前提  
 
 ```
 cd dotfiles
