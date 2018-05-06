@@ -42,7 +42,7 @@ sh ./config.sh
 vim Vagrantfile
 ```
 
-対象のboxとその下１行をコメントアウト　　 
+対象のboxとその下１行をアンコメント　　 
 
 ```Vagrantfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,6 +54,7 @@ vim Vagrantfile
   #config.vm.provision :shell, inline: $script1
   #config.vm.box = "ubuntu/xenial64"
   #config.vm.provision :shell, inline: $script2
+~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 仮想マシンのhostname(192.168.33.12)とusername(vagrant)の設定  
