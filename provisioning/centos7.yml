@@ -2,7 +2,7 @@
 ---
 
 - hosts: hostname
-  user: nobu
+  user: vagrant
   sudo: yes
   roles:
    - common

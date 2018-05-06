@@ -34,7 +34,7 @@
 
 - name: create path libvent 
   lineinfile: >
-    dest=~nobu/dotfiles/.zshrc
+    dest=~vagrant/dotfiles/.zshrc
     state=present
     insertafter='# User configuration'
     line='export LD_LIBRARY_PATH="/usr/local/libevent-2.1.8-stable/lib:$LD_LIBRARY_PATH"'

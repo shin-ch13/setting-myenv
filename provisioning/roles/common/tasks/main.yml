@@ -1,11 +1,11 @@
 ---
 - name: copy dotfiles to dest home
-  copy: src="../../../../dotfiles" dest="~nobu" owner=nobu group=nobu mode="u=rwx,g=r,o=r"
+  copy: src="../../../../dotfiles" dest="~vagrant" owner=vagrant group=vagrant mode="u=rwx,g=r,o=r"
 
 - name: Create symlinks
   file:
-    src: ~nobu/dotfiles/{{ item }}
-    dest: ~nobu/{{ item }}
+    src: ~vagrant/dotfiles/{{ item }}
+    dest: ~vagrant/{{ item }}
     state: link
     force: yes
   with_items:

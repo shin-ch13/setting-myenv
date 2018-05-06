@@ -2,5 +2,5 @@
 - name: install zsh by apt
   apt: name=zsh state=present
 
-- name: set zsh as default shell for nobu
-  command: chsh -s '/bin/zsh' nobu
+- name: set zsh as default shell for vagrant
+  command: chsh -s '/bin/zsh' vagrant
