@@ -16,6 +16,6 @@ for f in .??*; do
     [ "$f" = ".require_oh-my-zsh" ] && continue
     [ "$f" = ".gitmodules" ] && continue
 
-    ln -s ~/dotfiles/"$f" ~/
+    ln -snfv ~/dotfiles/"$f" ~/
 done
 
