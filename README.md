@@ -58,7 +58,7 @@ vim Vagrantfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
-仮想マシンのhostname(192.168.33.12)とusername(vagrant)の設定  
+仮想マシンのhostname(127.0.0.1:2222)とusername(vagrant)の設定  
 Do you want to run the ansible?[y/n]では'n'と入力してスキップ  
 
 ```
