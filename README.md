@@ -30,13 +30,13 @@ ansible 2.9.7
 
 # Usage
 
-仮想マシンのOS選択　　 
+Vagrantfile編集
 
 ```
 % vim Vagrantfile
-```
+```　　 
 
-デプロイするbox名(os)とインストールスクリプトをアンコメント　　 
+デプロイするbox名(os)とインストールスクリプトをアンコメント
 
 ```Vagrantfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,6 +48,22 @@ ansible 2.9.7
   #config.vm.provision :shell, inline: $centos_script
   config.vm.provision :shell, inline: $ubuntu_script
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+デプロイするVM要件を編集する
+
+```
+$num_instances = 1
+$instance_name_prefix = "test"
+$enable_serial_logging = false
+$share_home = false
+$vm_gui = false
+$vm_memory = 1024
+$vm_cpus = 1
+$vm_box = "ubuntu/bionic64"
+$vb_cpuexecutioncap = 100
+$shared_folders = {'./share' => '/home/vagrant/share'}
+$forwarded_ports = {2222 => 22}
 ```
 
 仮想マシンのデプロイ＆ansible実行  
