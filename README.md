@@ -34,7 +34,7 @@ Vagrantfile編集
 
 ```
 % vim Vagrantfile
-```　　 
+```
 
 デプロイするbox名(os)とインストールスクリプトをアンコメント
 
