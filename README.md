@@ -24,51 +24,29 @@ ansible 2.9.7
 # Installation
 
 ```
-git clone https://github.com/shin-ch13/setting-myenv
-cd setting-myenv
+% git clone https://github.com/shin-ch13/setting-myenv
+% cd setting-myenv
 ```
 
 # Usage
 
-## 1. dotfilesによるローカルマシンの設定
-
-.vimrc , .zshrc , .tmux.conf のシンボリックリンク設定  
-※対象パッケージはインストールされていること前提  
-
-```
-cd dotfiles
-sh ./setup.sh
-```
-
-## 2. ansibleによるリモートマシンの設定
-
-イベントリファイル記載のホストに対してPlaybookの実行
-
-```
-cd provisioning
-sh ./ansible_executable.sh
-```
-
-## 3. vagrant+ansibleによるMyテスト環境のデプロイ
-
 仮想マシンのOS選択　　 
 
 ```
-vim Vagrantfile
+% vim Vagrantfile
 ```
 
-対象のboxとその下１行をアンコメント　　 
+デプロイするbox名(os)とインストールスクリプトをアンコメント　　 
 
 ```Vagrantfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-  #boxの指定
-  #inline shellの指定
-  #config.vm.box = "centos/6"
-  #config.vm.provision :shell, inline: $script1
-  #config.vm.box = "centos/7"
-  #config.vm.provision :shell, inline: $script1
-  #config.vm.box = "ubuntu/xenial64"
-  #config.vm.provision :shell, inline: $script2
+  # $vm_box = "centos/6"
+  # $vm_box = "centos/7"
+  # $vm_box = "ubuntu/xenial64"
+  $vm_box = "ubuntu/bionic64"
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  #config.vm.provision :shell, inline: $centos_script
+  config.vm.provision :shell, inline: $ubuntu_script
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
@@ -76,6 +54,34 @@ vim Vagrantfile
 ※仮想マシンが起動した後にansibleが自動で実行される  
 
 ```
-vagrant up
+% vagrant up
 ```
 
+# Note
+ 
+VMとホストマシン間のファイル共有
+
+```
+% vim shared_file
+% mv shared_file ./share/
+```
+
+vagrant up時に生成されたインベントリファイルの参照
+
+```
+% cat .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
+```
+
+dotfilesのシンボリックリンクを単独で動かす場合
+
+```
+% cd dotfiles
+% sh ./setup.sh
+```
+
+ansible playbookを単独で動かす場合
+
+```
+% cd provisioning
+% sh ./ansible_execute.sh
+```
