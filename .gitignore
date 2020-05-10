@@ -3,4 +3,4 @@
 Thumbs.db
 *.log
 .vagrant/
-share/
+share/*
