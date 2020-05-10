@@ -27,9 +27,9 @@ $vm_gui = false
 $vm_memory = 1024
 $vm_cpus = 1
 # $vm_box = "centos/6"
-$vm_box = "centos/7"
+# $vm_box = "centos/7"
 # $vm_box = "ubuntu/xenial64"
-# $vm_box = "ubuntu/bionic64"
+$vm_box = "ubuntu/bionic64"
 $vb_cpuexecutioncap = 100
 $shared_folders = {'./share' => '/home/vagrant/share'}
 $forwarded_ports = {}
@@ -70,8 +70,8 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
   
   config.vm.box = $vm_box
-  config.vm.provision :shell, inline: $centos_script
-  #config.vm.provision :shell, inline: $ubuntu_script
+  #config.vm.provision :shell, inline: $centos_script
+  config.vm.provision :shell, inline: $ubuntu_script
   
   # Run Ansible from the Vagrant Host
   config.vm.provision "ansible" do |ansible|
