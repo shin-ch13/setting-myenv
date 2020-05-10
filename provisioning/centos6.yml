@@ -1,9 +1,8 @@
 #centos6 group master playbook
 ---
 
-- hosts: hostname
-  user: vagrant
-  sudo: yes
+- hosts: all
+  become: yes
   roles:
   - common
   - vim_centos

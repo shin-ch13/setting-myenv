@@ -1,11 +1,14 @@
 ---
 - name: vim requires install by yum
-  yum: name={{ item }} state=latest
-  with_items:
-    - git
-    - python
-    - python-devel
-    - libselinux-python
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - git
+      - python
+      - python-devel
+      - libselinux-python
 
 - name: install vim by yum
   yum: name=vim state=present

@@ -1,9 +1,13 @@
 ---
 - name: vim requires install by apt
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - git
-    - python
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:  
+      - git
+      - python
 
 - name: Install vim by apt
   apt: name=vim state=present

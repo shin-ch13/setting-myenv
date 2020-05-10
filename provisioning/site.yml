@@ -1,20 +1,36 @@
 # master playbook
 ---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: debug ansible_facts
+      debug:
+        var: ansible_facts
+    - name: debug ansible_env
+      debug:
+        var: ansible_env
 
 # centos6 specific tasks
-- include: centos6.yml
+- import_playbook: centos6.yml
   when: 
-   - ansible_distribution == "CentOS"
-   - ansible_distribution_major_version == "6"
+   - ansible_facts["distribution"] == "CentOS"
+   - ansible_facts["distribution_major_version"] == "6"
 
 # centos7 specific tasks
-- include: centos7.yml
+- import_playbook: centos7.yml
   when:
-   - ansible_distribution == "CentOS"
-   - ansible_distribution_major_version == "7" 
+   - ansible_facts["distribution"] == "CentOS"
+   - ansible_facts["distribution_major_version"] == "7"
 
-#Ubuntu specific tasks
-- include: ubuntu16.yml
+#Ubuntu16 specific tasks
+- import_playbook: ubuntu16.yml
   when:
-   - ansible_distribution == "Ubuntu"
-   - ansible_distribution_major_version == "16"
+   - ansible_facts["distribution"] == "Ubuntu"
+   - ansible_facts["distribution_major_version"] == "16"
+
+#Ubuntu18 specific tasks
+- import_playbook: ubuntu18.yml
+  when:
+   - ansible_facts["distribution"] == "Ubuntu"
+   - ansible_facts["distribution_major_version"] == "18"

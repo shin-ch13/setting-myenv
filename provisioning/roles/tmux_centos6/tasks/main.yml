@@ -1,9 +1,12 @@
 ---
 - name: tmux requires install by yum
-  yum: name={{ item }} state=latest
-  with_items:
-    - ncurses-devel
-    - gcc
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - ncurses-devel
+      - gcc
 
 - name: Create tmp directory
   file: path=/var/tmp/libevent-2.1.8-stable state=directory

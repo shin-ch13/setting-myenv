@@ -1,11 +1,15 @@
 ---
 - name: tmux requires install by apt
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - libncurses5-dev
-    - libevent-dev
-    - gcc
-    - make
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - libncurses5-dev
+      - libevent-dev
+      - gcc
+      - make
 
 - name: Create tmp directory
   file: path=/var/tmp/tmux-2.7 state=directory
