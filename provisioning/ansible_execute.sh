@@ -8,4 +8,4 @@ while true; do
         * ) echo "[y/n]で入力してください";;
     esac
 done
-ansible-playbook site.yml -i ./inventory/inventory.ini -u $username -K
+ansible-playbook site.yml -i ./inventory/inventory.ini -u $username --ask-pass --ask-become-pass
