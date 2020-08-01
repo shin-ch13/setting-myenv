@@ -2,5 +2,5 @@
 - name: install zsh by yum
   yum: name=zsh state=present
 
-- name: set zsh as default shell for vagrant
-  command: chsh -s '/bin/zsh' vagrant
+- name: set zsh as default shell for user
+  command: chsh -s '/bin/zsh' {{ ansible_env.SUDO_USER }}
