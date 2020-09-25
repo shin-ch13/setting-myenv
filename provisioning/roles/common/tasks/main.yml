@@ -1,11 +1,11 @@
 ---
 - name: copy dotfiles to dest home
-  copy: src="../../../../dotfiles" dest="~" owner={{ ansible_env.SUDO_USER }}  group={{ ansible_env.SUDO_USER }}  mode="u=rwx,g=r,o=r"
+  copy: src="../../../../dotfiles" dest="~{{ ansible_env.PWD}}" owner={{ ansible_env.SUDO_USER }}  group={{ ansible_env.SUDO_USER }}  mode="u=rwx,g=r,o=r"
 
 - name: Create symlinks
   file:
-    src: ~/dotfiles/{{ item }}
-    dest: ~/{{ item }}
+    src: "{{ ansible_env.PWD}}/dotfiles/{{ item }}"
+    dest: "{{ ansible_env.PWD}}/{{ item }}"
     state: link
     force: yes
   with_items:
