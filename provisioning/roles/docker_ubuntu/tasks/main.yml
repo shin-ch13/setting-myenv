@@ -9,7 +9,7 @@
       - apt-transport-https
       - ca-certificates
       - curl
-      - gnupg2
+      - gnupg
 #      - linux-image-extra-virtual
 #      - linux-image-extra-{{ ansible_facts.kernel }}
       - software-properties-common
