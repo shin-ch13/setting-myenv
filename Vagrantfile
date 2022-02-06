@@ -116,7 +116,9 @@ Vagrant.configure("2") do |config|
         vb.customize ["modifyvm", :id, "--cpuexecutioncap", "#{$vb_cpuexecutioncap}"]
       end
 
-      ip = "172.17.8.#{i+100}"
+      # mac os ip range limited
+      # https://www.virtualbox.org/manual/ch06.html#network_hostonly
+      ip = "192.168.56.#{i+100}"
       config.vm.network :private_network, ip: ip
 
       ## Private Networks
