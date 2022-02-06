@@ -67,10 +67,10 @@ $forwarded_ports = {2222 => 22}
 ```
 
 仮想マシンのデプロイ＆ansible実行  
-※仮想マシンが起動した後にansibleが自動で実行される  
 
 ```
 % vagrant up
+% vagrant provison
 ```
 
 # Note
