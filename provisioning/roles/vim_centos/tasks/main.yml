@@ -11,4 +11,7 @@
       - libselinux-python
 
 - name: install vim by yum
-  yum: name=vim state=present
+  yum:
+    name: vim
+    state: latest
+  

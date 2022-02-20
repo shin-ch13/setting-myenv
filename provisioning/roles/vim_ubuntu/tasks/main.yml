@@ -10,4 +10,7 @@
       - python
 
 - name: Install vim by apt
-  apt: name=vim state=present
+  apt:
+    name: vim
+    state: latest
+    update_cache: yes

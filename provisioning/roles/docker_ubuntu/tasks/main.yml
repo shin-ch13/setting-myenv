@@ -2,7 +2,7 @@
 - name: apt-get install packages
   apt:
     name: "{{ packages }}"
-    state: present
+    state: latest
     update_cache: yes
   vars:
     packages:
@@ -50,7 +50,7 @@
 - name: Install Docker packages
   apt:
     name: "{{ packages }}"
-    state: present
+    state: latest
     update_cache: yes
   vars:
     packages:

@@ -1,6 +1,9 @@
 ---
 - name: install zsh by apt
-  apt: name=zsh state=present
+  apt:
+    name: zsh
+    state: latest
+    update_cache: yes
 
 - name: set zsh as default shell for user
   command: chsh -s '/bin/zsh' vagrant
