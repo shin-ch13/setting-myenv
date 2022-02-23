@@ -8,6 +8,7 @@
     packages:  
       - git
       - python
+      - python-apt
 
 - name: Install vim by apt
   apt:
